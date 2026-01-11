@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.yiran.jei_ores.mixin",
+  "refmap": "jei_ores.refmap.json",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "accessor.BlockMatchTestAccessor",
+    "accessor.BlockStateMatchTestAccessor",
+    "accessor.CountPlacementAccessor",
+    "accessor.HeightRangePlacementAccessor",
+    "accessor.NoiseProviderAccessor",
+    "accessor.RandomBlockMatchTestAccessor",
+    "accessor.RandomBlockStateMatchTestAccessor",
+    "accessor.RarityFilterAccessor",
+    "accessor.SimpleStateProviderAccessor",
+    "accessor.TagMatchTestAccessor",
+    "accessor.TrapezoidHeightAccessor",
+    "accessor.UniformHeightAccessor",
+    "accessor.WeightedStateProviderAccessor"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

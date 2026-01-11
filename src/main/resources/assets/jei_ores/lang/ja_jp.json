@@ -1,0 +1,9 @@
+{
+  "jei.category.jei_ores.oregen": "鉱石の生成",
+  "jei.category.jei_ores.geode": "ジオードの生成",
+
+  "jei_ores.veins_per_chunk": "1チャンクに%s回",
+  "jei_ores.veins_per_chunk_range": "1チャンクに%s-%s回",
+  "jei_ores.rarity_chance": "%sチャンクに1回",
+  "jei_ores.discard_on_air_chance": "露出した鉱石が生成されない確率"
+}
