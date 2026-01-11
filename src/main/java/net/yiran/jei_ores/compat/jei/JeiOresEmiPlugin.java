@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 @JeiPlugin
-public class EmiOresEmiPlugin implements IModPlugin {
+public class JeiOresEmiPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -43,11 +43,15 @@ public class EmiOresEmiPlugin implements IModPlugin {
 
     @Override
     public void registerIngredients(IModIngredientRegistration registration) {
-        if (!Config.addBiomesToIndex.get()) return;
 
         // 关键：JEI 自定义 ingredient
         // 你大概率需要一个“BiomeIngredient(保存 biomeId 或 holder)”的包装类，而不是直接用 Biome 对象
-        List<Biome> allBiomes = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registries.BIOME).stream().toList();
+        List<Biome> allBiomes;
+        if (Config.addBiomesToIndex.get()) {
+            allBiomes = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registries.BIOME).stream().toList();
+        } else {
+            allBiomes = List.of();
+        }
 
         registration.register(
                 IBiomeIngredient.INSTANCE,          // IIngredientType<BiomeIngredient>
@@ -63,15 +67,15 @@ public class EmiOresEmiPlugin implements IModPlugin {
         Map<ResourceLocation, PlacedFeature> features = FeaturesReciever.getFeatures();
         if (features.isEmpty()) return;
 
-        List<JEIFeaturesData> ores = new ArrayList<>();
-        List<JEIFeaturesData> geodes = new ArrayList<>();
+        List<JeiFeaturesData> ores = new ArrayList<>();
+        List<JeiFeaturesData> geodes = new ArrayList<>();
 
         features.forEach((id, placedFeature) -> {
             FeatureConfiguration fc = placedFeature.feature().value().config();
             if (fc instanceof OreConfiguration) {
-                ores.add(new JEIFeaturesData(id,placedFeature));
+                ores.add(new JeiFeaturesData(id, placedFeature));
             } else if (fc instanceof GeodeConfiguration) {
-                geodes.add(new JEIFeaturesData(id,placedFeature));
+                geodes.add(new JeiFeaturesData(id, placedFeature));
             }
         });
 

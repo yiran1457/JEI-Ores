@@ -26,7 +26,7 @@ import java.util.List;
 public class IBiomeIngredient implements IIngredientType<Biome>, IIngredientHelper<Biome>, IIngredientRenderer<Biome> {
     public static IBiomeIngredient INSTANCE = new IBiomeIngredient();
 
-    private static final ResourceLocation missingSpriteId = JeiOres.id("jei_ores/biome_icon/missing");
+    private static final ResourceLocation missingSpriteId = JeiOres.id("biome_icon/missing");
 
     @Override
     public IIngredientType<Biome> getIngredientType() {

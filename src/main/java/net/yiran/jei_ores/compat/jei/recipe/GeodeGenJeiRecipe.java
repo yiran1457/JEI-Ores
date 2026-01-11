@@ -1,7 +1,7 @@
 package net.yiran.jei_ores.compat.jei.recipe;
 
 import net.yiran.jei_ores.JeiOres;
-import net.yiran.jei_ores.compat.jei.JEIFeaturesData;
+import net.yiran.jei_ores.compat.jei.JeiFeaturesData;
 import net.yiran.jei_ores.compat.jei.stack.IBiomeIngredient;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -36,7 +36,7 @@ import java.util.stream.Stream;
 
 @SuppressWarnings("removal")
 public class GeodeGenJeiRecipe extends AbstractPlacedFeatureJeiRecipe {
-    public static RecipeType<JEIFeaturesData> recipeType = RecipeType.create(JeiOres.MODID, "geode", JEIFeaturesData.class);
+    public static RecipeType<JeiFeaturesData> recipeType = RecipeType.create(JeiOres.MODID, "geode", JeiFeaturesData.class);
 
     public GeodeGenJeiRecipe(IGuiHelper guiHelper) {
         super(
@@ -49,7 +49,7 @@ public class GeodeGenJeiRecipe extends AbstractPlacedFeatureJeiRecipe {
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, JEIFeaturesData featuresData, IFocusGroup iFocusGroup) {
+    public void setRecipe(IRecipeLayoutBuilder builder, JeiFeaturesData featuresData, IFocusGroup iFocusGroup) {
         var id = featuresData.id();
         var feature = featuresData.feature();
 
@@ -173,7 +173,7 @@ public class GeodeGenJeiRecipe extends AbstractPlacedFeatureJeiRecipe {
         return Stream.empty();
     }
 
-    public void createRecipeExtras(IRecipeExtrasBuilder builder, JEIFeaturesData featuresData, IFocusGroup focuses) {
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, JeiFeaturesData featuresData, IFocusGroup focuses) {
         var feature = featuresData.feature();
 
         HeightProvider heightProvider = null;

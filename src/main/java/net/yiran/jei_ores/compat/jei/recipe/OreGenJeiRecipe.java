@@ -2,7 +2,7 @@ package net.yiran.jei_ores.compat.jei.recipe;
 
 import net.yiran.jei_ores.Config;
 import net.yiran.jei_ores.JeiOres;
-import net.yiran.jei_ores.compat.jei.JEIFeaturesData;
+import net.yiran.jei_ores.compat.jei.JeiFeaturesData;
 import net.yiran.jei_ores.compat.jei.stack.IBiomeIngredient;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -38,7 +38,7 @@ import java.util.stream.Stream;
 
 @SuppressWarnings("removal")
 public class OreGenJeiRecipe extends AbstractPlacedFeatureJeiRecipe {
-    public static RecipeType<JEIFeaturesData> recipeType = RecipeType.create(JeiOres.MODID, "ore", JEIFeaturesData.class);
+    public static RecipeType<JeiFeaturesData> recipeType = RecipeType.create(JeiOres.MODID, "ore", JeiFeaturesData.class);
 
     public OreGenJeiRecipe(IGuiHelper guiHelper) {
         super(
@@ -51,7 +51,7 @@ public class OreGenJeiRecipe extends AbstractPlacedFeatureJeiRecipe {
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, JEIFeaturesData featuresData, IFocusGroup iFocusGroup) {
+    public void setRecipe(IRecipeLayoutBuilder builder, JeiFeaturesData featuresData, IFocusGroup iFocusGroup) {
         var id = featuresData.id();
         var feature = featuresData.feature();
         OreConfiguration oreConfig = (OreConfiguration) feature.feature().value().config();
@@ -138,7 +138,7 @@ public class OreGenJeiRecipe extends AbstractPlacedFeatureJeiRecipe {
 
     }
 
-    public void createRecipeExtras(IRecipeExtrasBuilder builder, JEIFeaturesData featuresData, IFocusGroup focuses) {
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, JeiFeaturesData featuresData, IFocusGroup focuses) {
         var feature = featuresData.feature();
         HeightProvider heightProvider = null;
         int countMin = -1;

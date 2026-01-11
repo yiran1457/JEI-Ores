@@ -2,7 +2,7 @@ package net.yiran.jei_ores.compat.jei.recipe;
 
 import net.yiran.jei_ores.JeiOres;
 import net.yiran.jei_ores.client.FeaturesReciever;
-import net.yiran.jei_ores.compat.jei.JEIFeaturesData;
+import net.yiran.jei_ores.compat.jei.JeiFeaturesData;
 import net.yiran.jei_ores.compat.jei.widget.TextureTooltipWidget;
 import net.yiran.jei_ores.mixin.accessor.TrapezoidHeightAccessor;
 import net.yiran.jei_ores.mixin.accessor.UniformHeightAccessor;
@@ -30,11 +30,11 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractPlacedFeatureJeiRecipe extends AbstractRecipeCategory<JEIFeaturesData> {
+public abstract class AbstractPlacedFeatureJeiRecipe extends AbstractRecipeCategory<JeiFeaturesData> {
 
     private static final ResourceLocation DISTRIBUTION = JeiOres.id("textures/gui/distribution.png");
 
-    public AbstractPlacedFeatureJeiRecipe(RecipeType<JEIFeaturesData> recipeType, Component title, IDrawable icon, int width, int height) {
+    public AbstractPlacedFeatureJeiRecipe(RecipeType<JeiFeaturesData> recipeType, Component title, IDrawable icon, int width, int height) {
         super(recipeType, title, icon, width, height);
     }
 
@@ -164,22 +164,7 @@ public abstract class AbstractPlacedFeatureJeiRecipe extends AbstractRecipeCateg
                     256, 256, // <- 改成你 DISTRIBUTION 贴图真实尺寸
                     getDistributionGraphTooltip(type, min, max, midLow, midHigh)
             ));
-            /*
-            IDrawable drawable = new TextureTooltipWidget(
-                    DISTRIBUTION,
-                    0, type.v,   // u, v
-                    32, 16,      // w, h
-                    256, 256     // 整张贴图尺寸
-            );
 
-            widgets.addDrawable(drawable, x, y);
-
-            widgets.addTexture(DISTRIBUTION, x, y, 32, 16, 0, type.v)
-                    .tooltipText(getDistributionGraphTooltip(type, min, max, midLow, midHigh));*/
-            /*
-            widgets.addText(anchorText(min), x, y+8)
-                    .setTextAlignment(HorizontalAlignment.RIGHT)
-                    .setTextAlignment(VerticalAlignment.BOTTOM);*/
             widgets.addText(anchorText(min),48, 10)
                     .setPosition(x-48, y)
                     .setTextAlignment(HorizontalAlignment.RIGHT)
@@ -188,10 +173,6 @@ public abstract class AbstractPlacedFeatureJeiRecipe extends AbstractRecipeCateg
                     .setPosition(x+32, y)
                     .setTextAlignment(HorizontalAlignment.LEFT)
                     .setTextAlignment(VerticalAlignment.CENTER);
-            /*
-            widgets.addText(anchorText(max), x+32, 10)
-                    .setTextAlignment(HorizontalAlignment.LEFT)
-                    .setTextAlignment(VerticalAlignment.BOTTOM);*/
         }
     }
 
